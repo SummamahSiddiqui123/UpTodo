@@ -52,12 +52,12 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
+            icon: Icon(Icons.calendar_month),
+            label: "Calender",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notification",
+            icon: Icon(Icons.timer),
+            label: "Focus",
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
@@ -113,7 +113,7 @@ class IndexPage extends StatelessWidget {
             ),
             ListTile(
               title: Text("Focus"),
-              leading: Icon(Icons.lock_clock_outlined),
+              leading: Icon(Icons.timer),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return FocusPage();
@@ -157,12 +157,62 @@ class FocusPage extends StatelessWidget {
         title: Text('Focus'),
         backgroundColor: Colors.black,
       ),
-      body: Center(
-        child: Text('Focus Page Content'),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                 border: Border.all(
+                color: Colors.black, 
+                width: 6, 
+              ),
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.timer,
+                  color: Colors.black, 
+                  size: 40,
+                ),
+              ),
+            ),
+            Image.network(
+              'https://s3-us-west-2.amazonaws.com/infinitestudent-images/ckeditor_assets/pictures/516/content_expenditure.png', 
+              width: 400, 
+              height: 400, 
+            ),
+            ListTile(
+                leading: Icon(Icons.facebook),
+                title: Text('Facebook'),
+                trailing: Icon(Icons.info_outlined),
+              ),
+              ListTile(
+                leading: Icon(Icons.camera),
+                title: Text('Instagram'),
+                trailing: Icon(Icons.info_outlined),
+              ),
+              ListTile(
+                leading: Icon(Icons.flaky),
+                title: Text('Twitter'),
+                trailing: Icon(Icons.info_outlined),
+              ),
+              ListTile(
+                leading: Icon(Icons.telegram),
+                title: Text('Telegram'),
+                trailing: Icon(Icons.info_outlined),
+              ),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class ProfilePage extends StatelessWidget {
   @override
